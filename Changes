@@ -1,5 +1,11 @@
 Revision history for Perl module WWW::Blog::Identify.
 
+0.06  Thu Aug 28
+
+	Added URL checks for:
+		 20six
+		 Typepad
+
 0.05  Mon Jul 28
 
 	Added URL check for Xanga

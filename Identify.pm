@@ -9,7 +9,7 @@ our @ISA = qw(Exporter);
 our @EXPORT_OK = qw/identify/;
 
 
-our $VERSION = '0.05';
+our $VERSION = '0.06';
 
 
 sub identify {
@@ -48,7 +48,8 @@ sub identify {
 	return "manila" if  m|\.weblogger\.com/|o;
 	return "manila" if  m|\.weblogs\.com/|o;
 	
-
+ 	return "20six" if m|\.20six\.|o;
+ 	return "typepad" if m|\.typepad\.|o;
 	
 	return "twoday" if  /\.twoday\.net/o;
 	return "salon" if  /blogs\.salon\.com/o;
