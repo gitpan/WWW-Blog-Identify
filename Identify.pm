@@ -9,7 +9,7 @@ our @ISA = qw(Exporter);
 our @EXPORT_OK = qw/identify/;
 
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 
 sub identify {
@@ -46,16 +46,21 @@ sub identify {
 	return "radio" if  /\radio.weblogs\.com/o;
 	return "twoday" if  /\.twoday\.net/o;
 	return "salon" if  /blogs\.salon\.com/o;
-	return "splinder" if  /\.splinder\.it/o;
+	return "splinder" if  /\.splinder\.it/o;		# Italy
 	return "diarist" if  /\.diarist\.com/o;
 	return "antville" if  /\.antville\.org/o;
+	return 'bloggingnetwork' if  m|\.bloggingnetwork\.com/blogs|o;
 	return "crimsonblog" if  /\.crimsonblog\./o;
 	return "blog.pl (polish)" if  /\.blog\.pl/o;
 	return "twoday" if  /\.twoday\.net/o;
 	return "monblogue" if  /\.monblogue\.com/o;
-	return 'joueb' if  m|joueb\.com/|o;
+	return 'joueb' if  m|joueb\.com/|o;				# France
+	return 'blogstudio' if  m|\.blogstudio\.com/|o;
 	return 'blog-city' if  m|blog-city\.com/|o;
-	
+	return 'blogsky' if  m|\.blogsky\.com/|o;		# English and Persian
+	return 'u-blog' if  m|u-blog\.net/|o;	 		# France
+	return 'barrapunto' if  m|\.barrapunto\.com/index\.pl|o;	# Spain
+	return 'blig' if  m|\.blig\.(?:ig.)?com\.br/|o;	# Brazil
 	#
 	#	 CONTENT CHECKING
 	#
@@ -112,7 +117,7 @@ sub identify {
 	# Tests of last resort
 	my @blog_count = $text =~ /\bblog\b/gi;
 	
-	return "suspected by URL" if $url =~ /\bblog/;
+	return "suspected by URL" if $url =~ /[\W\-_](?:we)?blog/o;
 	return "suspected by rss" if $text =~ /\brss\b/i;
 	return "suspected by content" if scalar @blog_count > 5;
 	

@@ -1,0 +1,23 @@
+Revision history for Perl extension WWW::Blog::Identify.
+
+
+0.02  Thu May 15 2003
+
+	- Added blog URL checks for:
+		u-blog
+		bloggingnetwork
+		blogsky
+		barrapunto
+		blig
+		
+	-Set URL detector to check for "weblog", not just "blog"
+	
+	-Updated regex in URL detector to consider hyphens and
+		underscore to be a word boundary when looking for
+		'blog' or 'weblog' in the URL
+	
+	
+0.01  Mon May  5 2003
+	- original version; created by h2xs 1.21 with options
+		-X WWW::Blog::Identify
+
