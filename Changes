@@ -1,5 +1,20 @@
 Revision history for Perl module WWW::Blog::Identify.
 
+0.05  Mon Jul 28
+
+	Added URL check for Xanga
+	
+0.04  Tue May 27
+
+	Fixed bug where Manila was superseding Radio
+	
+	Added URL checks for:
+		Diaryhub (Thai)
+		Skyblog
+		
+	Added content checks for:
+		WebCrimson
+		
 0.03  Fri May 23 2003 
 
 	Fixed MT test to allow 'MovableType' and 'MoveableType'

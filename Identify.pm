@@ -9,7 +9,7 @@ our @ISA = qw(Exporter);
 our @EXPORT_OK = qw/identify/;
 
 
-our $VERSION = '0.03';
+our $VERSION = '0.05';
 
 
 sub identify {
@@ -37,15 +37,18 @@ sub identify {
 	return "pitas" if  /\.pitas\.com/o;
 	return "persianblog" if  /\.persianblog\.com/o; # Farsi
 	return "persianlog" if  /\bpersianlog\.com/o;  # Farsi
+	return "diaryhub" if  /\.diaryhub\.(?:com|net)\/?$/io; # Thai
+	
+	return "radio" if  /radio.weblogs\.com/o;
+	return "radio" if /blogs.law.harvard.edu/o;
+	return "radio" if /\.blogs.it\b/o;	
 	
 	return "manila" if  /\.manilasites\.com/o;
 	return "manila" if  /\.editthispage\.com/o;
 	return "manila" if  m|\.weblogger\.com/|o;
 	return "manila" if  m|\.weblogs\.com/|o;
 	
-	return "radio" if  /\radio.weblogs\.com/o;
-	return "radio" if /blogs.law.harvard.edu/o;
-	return "radio" if /\.blogs.it\b/o;
+
 	
 	return "twoday" if  /\.twoday\.net/o;
 	return "salon" if  /blogs\.salon\.com/o;
@@ -54,6 +57,7 @@ sub identify {
 	return "antville" if  /\.antville\.org/o;
 	return 'bloggingnetwork' if  m|\.bloggingnetwork\.com/blogs|o;
 	return "crimsonblog" if  /\.crimsonblog\./o;
+	return "skyblog" if  /\.skyblog\.com/o;	# French
 	
 	return "blog.pl (polish)" if  /\.blog\.pl/o;
 	return "e-blog.pl (polish)" if  /\.e-blog\.pl/o;
@@ -73,6 +77,7 @@ sub identify {
 	return 'jevon' if m|\.jevon\.org/|io;
 	return 'tripod' if m|\.tripod\.com/|io;
 	
+	return 'xanga' if m|\.xanga\.com|o;
 	#
 	#	 CONTENT CHECKING
 	#
@@ -130,7 +135,7 @@ sub identify {
 	return "pMachine" if m|pmachine.gif|io;
 	
 	return "psychoblogger" if m|Powered by (?:<a [^>]+>)?Psychoblogger|io;
-	
+	return "WebCrimson" if m|Powered by (?:<a [^>]+>)?WebCrimson|io;
 	
 	# Tests of last resort
 	my @blog_count = $text =~ /\bblog\b/gi;
